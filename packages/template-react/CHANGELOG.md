@@ -1,5 +1,11 @@
 # vite-react-starter
 
+## 1.4.0
+
+### Minor Changes
+
+- 修改版本号
+
 ## 0.3.0
 
 ### Minor Changes
