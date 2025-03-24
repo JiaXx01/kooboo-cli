@@ -1,6 +1,6 @@
 {
-  "name": "vite-vue-starter",
-  "version": "0.1.0",
+  "name": "@jx-cli/template-vue",
+  "version": "0.2.0",
   "publishConfig": {
     "access": "public"
   },
