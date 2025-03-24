@@ -1,5 +1,11 @@
 # @jx-cli/cli
 
+## 0.2.0
+
+### Minor Changes
+
+- 修改 cli
+
 ## 0.1.0
 
 ### Minor Changes
