@@ -1,5 +1,11 @@
 # @jx-cli/template-default
 
+## 0.4.0
+
+### Minor Changes
+
+- 删除 utils 目录
+
 ## 0.3.0
 
 ### Minor Changes
