@@ -1,0 +1,14 @@
+{
+  "name": "<%= projectName %>",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node -e \"import { sync } from '@jx-cli/sync'; sync({ srcDir: './src', outDir: './dist' })\""
+  },
+  "dependencies": {
+    "@jx-cli/sync": "workspace:^"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

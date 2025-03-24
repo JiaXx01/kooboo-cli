@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store 
+
+/utils/*
+!/utils/sync-from-remote.js
+!/utils/sync-to-remote.js
+!/utils/file-watcher.js

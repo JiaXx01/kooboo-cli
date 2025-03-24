@@ -7,27 +7,24 @@ import fse from 'fs-extra'
 import ejs from 'ejs'
 import { glob } from 'glob'
 
-async function create(projectName?: string, projectTemplate?: string) {
-  if (!projectTemplate) {
-    projectTemplate = await select({
-      message: '请选择项目模版',
-      choices: [
-        {
-          name: 'react 项目',
-          value: '@jx-cli/template-react'
-        },
-        {
-          name: 'vue 项目',
-          value: '@jx-cli/template-vue'
-        }
-      ]
-    })
-  }
+async function create() {
+  const projectTemplate = await select({
+    message: '请选择项目模版',
+    choices: [
+      {
+        name: 'react 项目',
+        value: '@jx-cli/template-react'
+      },
+      {
+        name: 'vue 项目',
+        value: '@jx-cli/template-vue'
+      }
+    ]
+  })
 
-  if (!projectName) {
-    while (!projectName) {
-      projectName = await input({ message: '请输入项目名' })
-    }
+  let projectName = ''
+  while (!projectName) {
+    projectName = await input({ message: '请输入项目名' })
   }
 
   const targetPath = path.join(process.cwd(), projectName)
