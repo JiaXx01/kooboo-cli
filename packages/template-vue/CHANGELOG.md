@@ -1,5 +1,11 @@
 # vite-vue-starter
 
+## 1.6.0
+
+### Minor Changes
+
+- sync 包、template-default 包
+
 ## 1.5.0
 
 ### Minor Changes

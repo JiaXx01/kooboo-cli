@@ -1,5 +1,16 @@
 # @jx-cli/cli
 
+## 0.4.0
+
+### Minor Changes
+
+- sync 包、template-default 包
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/create@1.3.0
+
 ## 0.3.0
 
 ### Minor Changes
