@@ -6,7 +6,7 @@
     "dev": "node -e \"import { sync } from '@jx-cli/sync'; sync({ srcDir: './src', outDir: './dist' })\""
   },
   "dependencies": {
-    "@jx-cli/sync": "workspace:^"
+    "@jx-cli/sync": "^0.1.0"
   },
   "devDependencies": {
     "typescript": "^5.3.3"

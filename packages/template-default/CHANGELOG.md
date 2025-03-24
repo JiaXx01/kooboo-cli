@@ -1,5 +1,11 @@
 # @jx-cli/template-default
 
+## 0.5.0
+
+### Minor Changes
+
+- 指定 sync 包版本号
+
 ## 0.4.0
 
 ### Minor Changes
