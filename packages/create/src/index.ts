@@ -18,6 +18,10 @@ async function create() {
       {
         name: 'vue 项目',
         value: '@jx-cli/template-vue'
+      },
+      {
+        name: 'vue-admin后台',
+        value: '@jx-cli/template-default'
       }
     ]
   })

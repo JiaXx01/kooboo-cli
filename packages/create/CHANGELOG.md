@@ -1,5 +1,11 @@
 # @jx-cli/create
 
+## 1.4.0
+
+### Minor Changes
+
+- create 增加 tempalte-default 选项
+
 ## 1.3.0
 
 ### Minor Changes
