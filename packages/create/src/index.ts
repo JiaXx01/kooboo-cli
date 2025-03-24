@@ -1,33 +1,34 @@
-import { NpmPackage } from '@jx-cli/utils'
 import { select, input, confirm } from '@inquirer/prompts'
+import os from 'node:os'
+import { NpmPackage } from '@jx-cli/utils'
+import path from 'node:path'
+import ora from 'ora'
 import fse from 'fs-extra'
 import ejs from 'ejs'
 import { glob } from 'glob'
-import os from 'node:os'
-import path from 'node:path'
-import ora from 'ora'
 
-async function create() {
-  const projectTemplate = await select({
-    message: '请选择项目模版',
-    choices: [
-      {
-        name: 'react 项目',
-        value: '@jx-cli/template-react'
-      },
-      {
-        name: 'vue 项目',
-        value: '@jx-cli/template-vue'
-      }
-    ]
-  })
-
-  let projectName = ''
-  while (!projectName) {
-    projectName = await input({ message: '请输入项目名' })
+async function create(projectName?: string, projectTemplate?: string) {
+  if (!projectTemplate) {
+    projectTemplate = await select({
+      message: '请选择项目模版',
+      choices: [
+        {
+          name: 'react 项目',
+          value: '@jx-cli/template-react'
+        },
+        {
+          name: 'vue 项目',
+          value: '@jx-cli/template-vue'
+        }
+      ]
+    })
   }
 
-  // console.log(projectTemplate, projectName);
+  if (!projectName) {
+    while (!projectName) {
+      projectName = await input({ message: '请输入项目名' })
+    }
+  }
 
   const targetPath = path.join(process.cwd(), projectName)
 
@@ -39,6 +40,8 @@ async function create() {
       process.exit(0)
     }
   }
+
+  // console.log(projectTemplate, projectName);
 
   const pkg = new NpmPackage({
     name: projectTemplate,
@@ -61,6 +64,7 @@ async function create() {
   await sleep(1000)
 
   const templatePath = path.join(pkg.npmFilePath, 'template')
+  // const targetPath = path.join(process.cwd(), projectName)
 
   fse.copySync(templatePath, targetPath)
 
@@ -86,7 +90,5 @@ function sleep(timeout: number) {
     setTimeout(resolve, timeout)
   })
 }
-
-create()
 
 export default create

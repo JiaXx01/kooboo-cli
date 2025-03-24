@@ -16,7 +16,12 @@ program
   .command('create')
   .description('创建项目')
   .action(async () => {
-    create()
+    try {
+      await create()
+    } catch (error) {
+      console.error('创建项目失败:', error)
+      process.exit(1)
+    }
   })
 
 program.parse()
