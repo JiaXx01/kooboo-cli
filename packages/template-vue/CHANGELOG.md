@@ -1,5 +1,11 @@
 # vite-vue-starter
 
+## 1.7.0
+
+### Minor Changes
+
+- sync 包、create 包编译
+
 ## 1.6.0
 
 ### Minor Changes

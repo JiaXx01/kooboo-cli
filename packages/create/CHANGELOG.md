@@ -1,5 +1,16 @@
 # @jx-cli/create
 
+## 1.5.0
+
+### Minor Changes
+
+- sync 包、create 包编译
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/utils@1.4.0
+
 ## 1.4.0
 
 ### Minor Changes

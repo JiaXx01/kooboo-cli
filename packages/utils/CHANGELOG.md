@@ -1,5 +1,11 @@
 # @jx-cli/utils
 
+## 1.4.0
+
+### Minor Changes
+
+- sync 包、create 包编译
+
 ## 1.3.0
 
 ### Minor Changes
