@@ -103,7 +103,7 @@ importers:
         specifier: ^5.3.3
         version: 5.8.2
 
-  packages/sync-test:
+  packages/template-default:
     dependencies:
       '@jx-cli/sync':
         specifier: workspace:^
@@ -124,12 +124,6 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.8.2
-
-  packages/template-default: {}
-
-  packages/template-react: {}
-
-  packages/template-vue: {}
 
   packages/types:
     devDependencies:

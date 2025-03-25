@@ -1,0 +1,63 @@
+<view id="page.dashboard"></view>
+
+<script>
+    var i18n = VueI18n.createI18n(Object.assign(window.__I18N__, {
+        silentTranslationWarn: true,
+        missingWarn: false,
+        silentFallbackWarn: true,
+        fallbackWarn: false
+    }))
+    var t = i18n.global.t
+
+    const app = Vue.createApp({
+        setup() {
+            const elementEn = ElementPlusLocaleEn
+            const elementZh = ElementPlusLocaleZhCn
+
+            return {
+                locale: window.__I18N__?.locale || 'en',
+                elementEn,
+                elementZh
+            }
+        }
+    })
+
+    app.use(ElementPlus)
+    app.use(i18n)
+
+    // 全局注册组件
+    // Element Plus Icons
+    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+        app.component('icon' + key, component)
+    }
+    for (const [key, component] of Object.entries(getComponents())) {
+        app.component(key, component)
+    }
+
+    app.config.globalProperties.t = t
+
+    // 全局方法
+    var { ElMessage, ElMessageBox, ElConfigProvider } = ElementPlus
+
+    // 全局状态
+    const globalState = Vue.reactive({
+        isLoading: false,
+        user: null,
+        settings: {
+            theme: 'light',
+            sidebarCollapsed: false
+        }
+    })
+    app.config.globalProperties.$globalState = globalState
+</script>
+<view id="common_routes"></view>
+<script>
+    // router
+    const { createWebHashHistory, createRouter, useRouter, useRoute } = VueRouter
+    var router = createRouter({
+        history: createWebHashHistory(),
+        routes
+    })
+    app.use(router)
+    app.mount("#app")
+</script> 
