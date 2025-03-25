@@ -45,7 +45,7 @@ export async function sync(options: SyncOptions) {
 
       // 只对 .ts, .tsx, .js, .jsx 文件进行导入语句转换
       const ext = path.extname(filePath)
-      if (['.ts', '.tsx', '.js', '.jsx'].includes(ext)) {
+      if (['.ts', '.js'].includes(ext)) {
         // 只处理导入语句转换，不进行其他转换
         const result = transform(source, {
           sourceType: 'module',

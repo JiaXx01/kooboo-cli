@@ -1,5 +1,11 @@
 # @jx-cli/sync
 
+## 0.3.0
+
+### Minor Changes
+
+- 更新 sync 包
+
 ## 0.2.0
 
 ### Minor Changes
