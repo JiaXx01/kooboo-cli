@@ -1,16 +1,21 @@
 {
   "name": "@jx-cli/template-default",
-  "version": "0.5.0",
+  "version": "1.2.0",
   "publishConfig": {
     "access": "public"
   },
-  "description": "默认项目模板",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node scripts/dev.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.4.1"
+  "dependencies": {
+    "@jx-cli/sync": "workspace:^"
+  },
+  "devDependencies": {
+    "@jx-cli/types": "workspace:^",
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-typescript": "^7.23.3",
+    "typescript": "^5.3.3"
+  }
 }

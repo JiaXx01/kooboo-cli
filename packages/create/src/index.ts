@@ -11,16 +11,16 @@ async function create() {
   const projectTemplate = await select({
     message: '请选择项目模版',
     choices: [
+      // {
+      //   name: 'react 项目',
+      //   value: '@jx-cli/template-react'
+      // },
+      // {
+      //   name: 'vue 项目',
+      //   value: '@jx-cli/template-vue'
+      // },
       {
-        name: 'react 项目',
-        value: '@jx-cli/template-react'
-      },
-      {
-        name: 'vue 项目',
-        value: '@jx-cli/template-vue'
-      },
-      {
-        name: 'vue-admin后台',
+        name: '基础模板',
         value: '@jx-cli/template-default'
       }
     ]
@@ -52,20 +52,16 @@ async function create() {
   if (!(await pkg.exists())) {
     const spinner = ora('下载模版中...').start()
     await pkg.install()
-    await sleep(1000)
     spinner.stop()
   } else {
     const spinner = ora('更新模版中...').start()
     await pkg.update()
-    await sleep(1000)
     spinner.stop()
   }
 
   const spinner = ora('创建项目中...').start()
-  await sleep(1000)
 
-  const templatePath = path.join(pkg.npmFilePath, 'template')
-  // const targetPath = path.join(process.cwd(), projectName)
+  const templatePath = pkg.npmFilePath
 
   fse.copySync(templatePath, targetPath)
 
@@ -84,12 +80,6 @@ async function create() {
   }
 
   spinner.stop()
-}
-
-function sleep(timeout: number) {
-  return new Promise(resolve => {
-    setTimeout(resolve, timeout)
-  })
 }
 
 export default create

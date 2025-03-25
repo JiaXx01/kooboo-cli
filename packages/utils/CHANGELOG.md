@@ -1,5 +1,17 @@
 # @jx-cli/utils
 
+## 1.6.0
+
+### Minor Changes
+
+- xx
+
+## 1.5.0
+
+### Minor Changes
+
+- 实现默认模版和 babel 监听
+
 ## 1.4.0
 
 ### Minor Changes

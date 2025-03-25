@@ -1,5 +1,27 @@
 # @jx-cli/cli
 
+## 0.7.0
+
+### Minor Changes
+
+- xx
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/create@1.7.0
+
+## 0.6.0
+
+### Minor Changes
+
+- 实现默认模版和 babel 监听
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/create@1.6.0
+
 ## 0.5.0
 
 ### Minor Changes

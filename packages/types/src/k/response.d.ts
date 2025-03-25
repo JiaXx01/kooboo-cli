@@ -1,0 +1,3 @@
+interface Response {}
+
+export { Response }

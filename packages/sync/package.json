@@ -17,13 +17,18 @@
   "license": "ISC",
   "packageManager": "pnpm@10.4.1",
   "dependencies": {
-    "@babel/core": "^7.24.0",
-    "@babel/preset-env": "^7.24.0",
-    "@babel/preset-react": "^7.23.3",
-    "@babel/preset-typescript": "^7.23.3",
+    "@babel/helper-plugin-utils": "^7.26.5",
+    "@babel/types": "^7.24.0",
     "chokidar": "^3.6.0"
   },
+  "peerDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-typescript": "^7.23.3"
+  },
   "devDependencies": {
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__helper-plugin-utils": "^7.10.3",
     "@types/node": "^20.11.24",
     "typescript": "^5.3.3"
   }
