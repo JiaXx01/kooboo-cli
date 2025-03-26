@@ -12,12 +12,12 @@ export const syncRequest = (data: any) =>
 
 interface SyncOptions {
   srcDir: string
-  serverUrl: string
+  remoteSiteUrl: string
 }
 
 export async function sync(options: SyncOptions) {
-  const { srcDir, serverUrl } = options
-  axios.defaults.baseURL = serverUrl
+  const { srcDir, remoteSiteUrl } = options
+  axios.defaults.baseURL = remoteSiteUrl
   // 初始化 watcher
   const watcher = chokidar.watch(srcDir, {
     ignored: /(^|[\/\\])\../, // 忽略隐藏文件
