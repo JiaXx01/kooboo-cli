@@ -19,6 +19,7 @@
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.26.5",
     "@babel/types": "^7.24.0",
+    "axios": "^1.8.4",
     "chokidar": "^3.6.0"
   },
   "peerDependencies": {

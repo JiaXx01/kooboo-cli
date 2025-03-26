@@ -3,28 +3,37 @@ import { transform } from '@babel/core'
 import fs from 'node:fs'
 import path from 'node:path'
 import importCodeBlockTransformer from './babel-plugins/import-transformer.mjs'
+import { execSyncDeleteTo, execSyncSaveTo } from './sync/index.js'
+
+import axios from 'axios'
+
+export const syncRequest = (data: any) =>
+  axios.post(
+    'http://test_code_sync.redev.cn/_site_import_helper/api/__import',
+    data
+  )
 
 interface SyncOptions {
   srcDir: string
   outDir: string
+  siteUrl?: string
 }
 
 export async function sync(options: SyncOptions) {
-  const { srcDir, outDir: outputDir } = options
-
-  // 确保输出目录存在
-  // if (!fs.existsSync(outputDir)) {
-  //   fs.mkdirSync(outputDir, { recursive: true })
-  // }
+  const { srcDir, outDir: outputDir, siteUrl } = options
 
   // 初始化 watcher
   const watcher = chokidar.watch(srcDir, {
     ignored: /(^|[\/\\])\../, // 忽略隐藏文件
-    persistent: true
+    persistent: true,
+    ignoreInitial: true
   })
 
-  // 处理文件变化
+  // 处理文件变化 - 只在文件真正变动时执行，初次运行时不执行
   watcher
+    .on('ready', () => {
+      console.log('开始监听文件变动')
+    })
     .on('add', handleFileChange)
     .on('change', handleFileChange)
     .on('unlink', handleFileDelete)
@@ -32,13 +41,6 @@ export async function sync(options: SyncOptions) {
   async function handleFileChange(filePath: string) {
     try {
       const relativePath = path.relative(srcDir, filePath)
-      const outPath = path.join(outputDir, relativePath)
-
-      // 确保输出文件的目录存在
-      const outDir = path.dirname(outPath)
-      if (!fs.existsSync(outDir)) {
-        fs.mkdirSync(outDir, { recursive: true })
-      }
 
       // 读取源文件
       const source = fs.readFileSync(filePath, 'utf-8')
@@ -62,30 +64,23 @@ export async function sync(options: SyncOptions) {
           }
         })
 
-        if (result?.code) {
-          // 写入转换后的文件
-          fs.writeFileSync(outPath, result.code)
-          console.log(`Transformed imports: ${relativePath}`)
-        }
+        // if (result?.code) {
+        const code = result?.code || ''
+        execSyncSaveTo(relativePath, code)
+        // }
       } else {
-        // 对于其他类型的文件，直接复制
-        fs.copyFileSync(filePath, outPath)
-        console.log(`Copied: ${relativePath}`)
+        execSyncSaveTo(relativePath, source)
       }
     } catch (error) {
-      console.error(`Error processing ${filePath}:`, error)
+      console.error(`Error processing ${filePath}:`)
     }
   }
 
   function handleFileDelete(filePath: string) {
     try {
       const relativePath = path.relative(srcDir, filePath)
-      const outPath = path.join(outputDir, relativePath)
 
-      if (fs.existsSync(outPath)) {
-        fs.unlinkSync(outPath)
-        console.log(`Deleted: ${relativePath}`)
-      }
+      execSyncDeleteTo(relativePath)
     } catch (error) {
       console.error(`Error deleting ${filePath}:`, error)
     }
