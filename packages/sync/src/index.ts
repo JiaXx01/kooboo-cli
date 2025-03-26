@@ -13,9 +13,9 @@ export async function sync(options: SyncOptions) {
   const { srcDir, outDir: outputDir } = options
 
   // 确保输出目录存在
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true })
-  }
+  // if (!fs.existsSync(outputDir)) {
+  //   fs.mkdirSync(outputDir, { recursive: true })
+  // }
 
   // 初始化 watcher
   const watcher = chokidar.watch(srcDir, {
@@ -43,7 +43,7 @@ export async function sync(options: SyncOptions) {
       // 读取源文件
       const source = fs.readFileSync(filePath, 'utf-8')
 
-      // 只对 .ts, .tsx, .js, .jsx 文件进行导入语句转换
+      // 只对 .ts, .js  文件进行导入语句转换
       const ext = path.extname(filePath)
       if (['.ts', '.js'].includes(ext)) {
         // 只处理导入语句转换，不进行其他转换

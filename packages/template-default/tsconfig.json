@@ -16,7 +16,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./",
     "paths": {
-      "@CodeBlock/*": ["src/CodeBlock/*"]
+      "@CodeBlock/*": ["src/CodeBlock/*"],
+      "@Module/*": ["src/Module/*/code/index.ts"]
     },
     "types": ["@jx-cli/types"]
   },
