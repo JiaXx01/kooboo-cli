@@ -1,4 +1,4 @@
-import { define } from 'module:sqlite_orm'
+import { define } from 'module:sqlite_orm_v2'
 
 const model = define('user', {
     user_id: {

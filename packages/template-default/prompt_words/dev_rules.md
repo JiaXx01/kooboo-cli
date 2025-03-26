@@ -3,7 +3,7 @@
 2. 图表: Echarts
 3. 后端: k-script 
    1. docs_url: https://achen-11.github.io/kooboo-dev-guide/api/k-api.html
-4. 数据库: sqlite_orm
+4. 数据库: sqlite
 
 # 目录结构规范
 src
@@ -90,7 +90,7 @@ src
 1. 使用 sqlite 作为数据库
    - k.DB 文档: https://achen-11.github.io/kooboo-dev-guide/api/k-DB.html
 2. kooboo的表自带 `_id` 作为主键, 不需要手动创建和管理
-3. 可以使用 sqlite_orm 进行便捷操作, 也可以使用 `k.DB.sqlite.query(sql)` 执行原生 sql
+3. 可以使用 sqlite_orm_v2 进行便捷操作, 也可以使用 `k.DB.sqlite.query(sql)` 执行原生 sql
 4. SQL 查询参数传递
    - 错误：使用数组形式传递参数，如 `k.DB.sqlite.query(sql, [param1, param2])`，或使用 `?` 作为参数占位符
    - 正确：使用命名参数对象，如 `k.DB.sqlite.query(sql, { key1: value1, key2: value2 })`，并在 SQL 中使用 `@key` 形式的参数占位符
@@ -109,9 +109,9 @@ k.api.post('create', (body) => {
 })
 ```
 
-## sqlite_orm 使用规范
+## sqlite_orm_v2 使用规范
 1. 不支持模糊查询, 不支持大小比较, 如"$glt", "$gte", "$like"等
-   - 错误：依赖 sqlite_orm 的 `$like` 操作符
+   - 错误：依赖 sqlite_orm_v2 的 `$like` 操作符
    - 正确：对于模糊查询和比较大小，使用原生 SQL 查询 `k.DB.sqlite.query(sql, params)`
 2. 查询时的排序参数
    - 错误：使用 `sort: { created: -1 }` 格式的排序参数
@@ -128,7 +128,7 @@ k.api.post('create', (body) => {
      4. 使用 `findById` 方法查询单条记录，如 `OrderItemModel.findById(id)`
      5. 使用 `k.DB.sqlite.query` 执行原生 sql 进行查询
 5. 自动创建 created 和 updated 字段
-    - 在使用 sqlite_orm 定义模型时，可以通过 `define` 方法的第二个参数 `options` 中的 `timestamps` 选项来自动添加 `created` 和 `updated` 字段，无需手动在模型中定义这些字段。
+    - 在使用 sqlite_orm_v2 定义模型时，可以通过 `define` 方法的第二个参数 `options` 中的 `timestamps` 选项来自动添加 `created` 和 `updated` 字段，无需手动在模型中定义这些字段。
 6. 枚举类型的正确引用方式
    - 在定义模型字段类型时，对于枚举类型的引用有特定的语法格式。
    - 正确的枚举类型引用:
@@ -156,7 +156,7 @@ k.api.post('create', (body) => {
    - 在定义模型字段类型时，对于日期类型字段的声明有特定的语法格式。
    - 正确的日期类型字段声明:
         ```ts
-        import { define, DataTypes } from 'module:sqlite_orm'
+        import { define, DataTypes } from 'module:sqlite_orm_v2'
         // 定义日期类型字段
         const model = define("products", {
             // ...其他字段

@@ -131,32 +131,6 @@ importers:
         specifier: ^5.3.3
         version: 5.8.2
 
-  packages/template-default:
-    dependencies:
-      '@jx-cli/sync':
-        specifier: workspace:^
-        version: link:../sync
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.24.0
-        version: 7.26.10
-      '@babel/preset-env':
-        specifier: ^7.24.0
-        version: 7.26.9(@babel/core@7.26.10)
-      '@babel/preset-typescript':
-        specifier: ^7.23.3
-        version: 7.26.0(@babel/core@7.26.10)
-      '@jx-cli/types':
-        specifier: workspace:^
-        version: link:../types
-      typescript:
-        specifier: ^5.3.3
-        version: 5.8.2
-
-  packages/template-react: {}
-
-  packages/template-vue: {}
-
   packages/types:
     devDependencies:
       typescript:
