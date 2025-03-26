@@ -1,0 +1,48 @@
+<template id="app-header">
+    <header class="bg-white shadow">
+        <div class="flex justify-between items-center px-6 py-3">
+            <div class="flex items-center">
+                <!-- <img src="/logo.png" alt="Logo" class="h-8 mr-2"> -->
+                <h1 class="text-xl font-bold text-gray-800">kooboo admin</h1>
+            </div>
+            <div class="flex items-center">
+                <el-dropdown>
+                    <span class="flex items-center cursor-pointer">
+                        <el-avatar :size="32" class="mr-2">{{ userInfo.name.substring(0, 1) }}</el-avatar>
+                        <span>{{ userInfo.name }}</span>
+                        <icon-arrow-down class="w-4 h-4 ml-1"></icon-arrow-down>
+                    </span>
+                    <template #dropdown>
+                        <el-dropdown-menu>
+                            <el-dropdown-item>个人信息</el-dropdown-item>
+                            <el-dropdown-item>修改密码</el-dropdown-item>
+                            <el-dropdown-item divided @click="handleLogout">退出登录</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </template>
+                </el-dropdown>
+            </div>
+        </div>
+    </header>
+  </template>
+  
+  <script>
+    defineComponent('app-header', {
+        template: '#app-header',
+        props: {},
+        emits: [],
+        setup(props, { emit }) {
+            const userInfo = ref(window.__USER_INFO__ || {
+                username: '管理员',
+                avatar: '',
+                role: '管理员'
+            });
+  
+            return {
+                userInfo,
+                handleLogout() {
+                    location.href = "/__logout"
+                },
+            }
+        }
+    })
+  </script>
