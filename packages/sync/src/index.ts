@@ -8,20 +8,16 @@ import { execSyncDeleteTo, execSyncSaveTo } from './sync/index.js'
 import axios from 'axios'
 
 export const syncRequest = (data: any) =>
-  axios.post(
-    'http://test_code_sync.redev.cn/_site_import_helper/api/__import',
-    data
-  )
+  axios.post('/_site_import_helper/api/__import', data)
 
 interface SyncOptions {
   srcDir: string
-  outDir: string
-  siteUrl?: string
+  serverUrl: string
 }
 
 export async function sync(options: SyncOptions) {
-  const { srcDir, outDir: outputDir, siteUrl } = options
-
+  const { srcDir, serverUrl } = options
+  axios.defaults.baseURL = serverUrl
   // 初始化 watcher
   const watcher = chokidar.watch(srcDir, {
     ignored: /(^|[\/\\])\../, // 忽略隐藏文件

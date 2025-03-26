@@ -55,6 +55,9 @@ importers:
       '@jx-cli/utils':
         specifier: workspace:^
         version: link:../utils
+      axios:
+        specifier: ^1.8.4
+        version: 1.8.4
       ejs:
         specifier: ^3.1.10
         version: 3.1.10
@@ -106,7 +109,7 @@ importers:
         specifier: ^5.3.3
         version: 5.8.2
 
-  packages/template-default:
+  packages/sync-test:
     dependencies:
       '@jx-cli/sync':
         specifier: workspace:^

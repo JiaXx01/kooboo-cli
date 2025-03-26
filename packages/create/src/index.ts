@@ -11,21 +11,53 @@ import ora from 'ora'
 import fse from 'fs-extra'
 import ejs from 'ejs'
 import { glob } from 'glob'
+import { checkAuth } from './checkAuth.js'
+
+interface AuthData {
+  token: string
+  expireAt: number
+  serverUrl: string
+  username: string
+  password: string
+}
 
 async function create() {
-  let username = ''
-  while (!username) {
-    username = await input({ message: '请输入用户名' })
+  let authSuccess = false
+  let authData: AuthData | null = null
+
+  while (!authSuccess) {
+    let username = ''
+    while (!username) {
+      username = await input({ message: '请输入用户名' })
+    }
+
+    let password = ''
+    while (!password) {
+      password = await passwordInput({
+        message: '请输入密码'
+      })
+    }
+
+    const auth_spinner = ora('验证身份中...').start()
+    const result = await checkAuth(username, password)
+    auth_spinner.stop()
+
+    if (!result.success) {
+      auth_spinner.fail('验证身份失败，请重新输入用户名和密码')
+    } else {
+      auth_spinner.succeed('验证身份成功！')
+      authSuccess = true
+      authData = {
+        ...result.data!,
+        username,
+        password
+      }
+    }
   }
 
-  let password = ''
-  while (!password) {
-    password = await passwordInput({ message: '请输入密码' })
-  }
-
-  let remoteSiteUrl = ''
-  while (!remoteSiteUrl) {
-    remoteSiteUrl = await input({ message: '请输入URL地址' })
+  let projectName = ''
+  while (!projectName) {
+    projectName = await input({ message: '请输入项目名' })
   }
 
   const projectTemplate = await select({
@@ -37,11 +69,6 @@ async function create() {
       }
     ]
   })
-
-  let projectName = ''
-  while (!projectName) {
-    projectName = await input({ message: '请输入项目名' })
-  }
 
   const targetPath = path.join(process.cwd(), projectName)
 
@@ -84,10 +111,11 @@ async function create() {
   for (let i = 0; i < files.length; i++) {
     const filePath = path.join(targetPath, files[i])
     const renderResult = await ejs.renderFile(filePath, {
-      REMOTE_SITE_URL: remoteSiteUrl,
-      BASIC_AUTH_USER_NAME: username,
-      BASIC_AUTH_PASSWORD: password,
-      BASIC_AUTH_TOKEN: ''
+      REMOTE_SITE_URL: authData?.serverUrl,
+      BASIC_AUTH_USER_NAME: authData?.username,
+      BASIC_AUTH_PASSWORD: authData?.password,
+      BASIC_AUTH_TOKEN: authData?.token,
+      BASIC_AUTH_EXPIRE_AT: authData?.expireAt
     })
     fse.writeFileSync(filePath, renderResult)
   }
@@ -95,5 +123,7 @@ async function create() {
 
   spinner.stop()
 }
+
+create()
 
 export default create
