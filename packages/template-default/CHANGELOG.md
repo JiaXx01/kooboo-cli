@@ -1,5 +1,11 @@
 # @jx-cli/template-default
 
+## 1.3.0
+
+### Minor Changes
+
+- 添加.env 文件配置
+
 ## 1.2.1
 
 ### Patch Changes

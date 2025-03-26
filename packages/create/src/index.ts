@@ -1,4 +1,9 @@
-import { select, input, confirm } from '@inquirer/prompts'
+import {
+  select,
+  input,
+  confirm,
+  password as passwordInput
+} from '@inquirer/prompts'
 import os from 'node:os'
 import { NpmPackage } from '@jx-cli/utils'
 import path from 'node:path'
@@ -8,17 +13,24 @@ import ejs from 'ejs'
 import { glob } from 'glob'
 
 async function create() {
+  let username = ''
+  while (!username) {
+    username = await input({ message: '请输入用户名' })
+  }
+
+  let password = ''
+  while (!password) {
+    password = await passwordInput({ message: '请输入密码' })
+  }
+
+  let remoteSiteUrl = ''
+  while (!remoteSiteUrl) {
+    remoteSiteUrl = await input({ message: '请输入URL地址' })
+  }
+
   const projectTemplate = await select({
     message: '请选择项目模版',
     choices: [
-      // {
-      //   name: 'react 项目',
-      //   value: '@jx-cli/template-react'
-      // },
-      // {
-      //   name: 'vue 项目',
-      //   value: '@jx-cli/template-vue'
-      // },
       {
         name: '基础模板',
         value: '@jx-cli/template-default'
@@ -41,8 +53,6 @@ async function create() {
       process.exit(0)
     }
   }
-
-  // console.log(projectTemplate, projectName);
 
   const pkg = new NpmPackage({
     name: projectTemplate,
@@ -68,16 +78,20 @@ async function create() {
   const files = await glob('**', {
     cwd: targetPath,
     nodir: true,
-    ignore: 'node_modules/**'
+    ignore: ['node_modules/**', 'src/**'],
+    dot: true // 添加dot选项以匹配以点开头的文件，如.env
   })
-
   for (let i = 0; i < files.length; i++) {
     const filePath = path.join(targetPath, files[i])
     const renderResult = await ejs.renderFile(filePath, {
-      projectName
+      REMOTE_SITE_URL: remoteSiteUrl,
+      BASIC_AUTH_USER_NAME: username,
+      BASIC_AUTH_PASSWORD: password,
+      BASIC_AUTH_TOKEN: ''
     })
     fse.writeFileSync(filePath, renderResult)
   }
+  fse.removeSync(path.join(targetPath, 'CHANGELOG.md'))
 
   spinner.stop()
 }
