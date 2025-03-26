@@ -12,7 +12,7 @@ import fse from 'fs-extra'
 import ejs from 'ejs'
 import { glob } from 'glob'
 import { checkAuth } from './checkAuth.js'
-
+import { createKoobooSite } from './createSite.js'
 interface AuthData {
   token: string
   expireAt: number
@@ -58,6 +58,18 @@ async function create() {
   let projectName = ''
   while (!projectName) {
     projectName = await input({ message: '请输入项目名' })
+  }
+  const createSiteSpinner = ora('创建远程站点中...').start()
+  const createSiteResult = await createKoobooSite({
+    siteName: projectName,
+    token: authData?.token!,
+    serverUrl: authData?.serverUrl!
+  })
+  createSiteSpinner.stop()
+  
+  if (!createSiteResult.success) {
+    ora('创建站点失败, 请检查信息后重试').fail()
+    return
   }
 
   const projectTemplate = await select({
@@ -111,7 +123,9 @@ async function create() {
   for (let i = 0; i < files.length; i++) {
     const filePath = path.join(targetPath, files[i])
     const renderResult = await ejs.renderFile(filePath, {
-      REMOTE_SITE_URL: authData?.serverUrl,
+      SERVER_URL: authData?.serverUrl,
+      REMOTE_SITE_URL: createSiteResult.data.siteUrl,
+      REMOTE_SITE_ID: createSiteResult.data.siteId,
       BASIC_AUTH_USER_NAME: authData?.username,
       BASIC_AUTH_PASSWORD: authData?.password,
       BASIC_AUTH_TOKEN: authData?.token,
