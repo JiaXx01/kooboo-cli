@@ -128,7 +128,6 @@ importers:
         specifier: ^5.3.3
         version: 5.8.2
 
-<<<<<<< HEAD
   packages/template-default:
     dependencies:
       '@jx-cli/sync':
@@ -155,8 +154,6 @@ importers:
 
   packages/template-vue: {}
 
-=======
->>>>>>> main
   packages/types:
     devDependencies:
       typescript:
