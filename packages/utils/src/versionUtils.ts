@@ -2,7 +2,8 @@ import axios from 'axios'
 import urlJoin from 'url-join'
 
 function getNpmRegistry() {
-  return 'https://registry.npmmirror.com'
+  // return 'https://registry.npmmirror.com'
+  return 'https://registry.npmjs.org'
 }
 
 async function getNpmInfo(packageName: string) {
