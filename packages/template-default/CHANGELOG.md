@@ -1,5 +1,27 @@
 # @jx-cli/template-default
 
+## 1.17.0
+
+### Minor Changes
+
+- 大修复
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/sync@0.17.0
+
+## 1.16.0
+
+### Minor Changes
+
+- 版本号错误
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/sync@0.16.0
+
 ## 1.15.0
 
 ### Minor Changes

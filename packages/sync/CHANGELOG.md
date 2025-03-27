@@ -1,5 +1,17 @@
 # @jx-cli/sync
 
+## 0.17.0
+
+### Minor Changes
+
+- 大修复
+
+## 0.16.0
+
+### Minor Changes
+
+- 版本号错误
+
 ## 0.15.0
 
 ### Minor Changes

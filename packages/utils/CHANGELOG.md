@@ -1,5 +1,17 @@
 # @jx-cli/utils
 
+## 1.17.0
+
+### Minor Changes
+
+- 大修复
+
+## 1.16.0
+
+### Minor Changes
+
+- 修改镜像地址
+
 ## 1.15.0
 
 ### Minor Changes
