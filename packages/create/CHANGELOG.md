@@ -1,5 +1,93 @@
 # @jx-cli/create
 
+## 1.15.0
+
+### Minor Changes
+
+- ts 编译
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/utils@1.14.0
+
+## 1.14.0
+
+### Minor Changes
+
+- style 和 script 保留后缀，修正监听模式错误
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/utils@1.13.0
+
+## 1.13.0
+
+### Minor Changes
+
+- #
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/utils@1.12.0
+
+## 1.12.0
+
+### Minor Changes
+
+- 好多问题
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/utils@1.11.0
+
+## 1.11.0
+
+### Minor Changes
+
+- #
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/utils@1.10.0
+
+## 1.10.0
+
+### Minor Changes
+
+- @
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/utils@1.9.0
+
+## 1.9.0
+
+### Minor Changes
+
+- 发布进行测试
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/utils@1.8.0
+
+## 1.8.0
+
+### Minor Changes
+
+- 大升级
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/utils@1.7.0
+
 ## 1.7.0
 
 ### Minor Changes

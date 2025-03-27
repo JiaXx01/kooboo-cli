@@ -1,5 +1,71 @@
 # @jx-cli/sync
 
+## 0.14.0
+
+### Minor Changes
+
+- ts 编译
+
+## 0.13.0
+
+### Minor Changes
+
+- style 和 script 保留后缀，修正监听模式错误
+
+## 0.12.0
+
+### Minor Changes
+
+- #
+
+## 0.11.0
+
+### Minor Changes
+
+- 监听初始化同步，代码错误提示
+
+## 0.10.0
+
+### Minor Changes
+
+- 编译
+
+## 0.9.0
+
+### Minor Changes
+
+- 好多问题
+
+## 0.8.0
+
+### Minor Changes
+
+- #
+
+## 0.7.0
+
+### Minor Changes
+
+- token 问题
+
+## 0.6.0
+
+### Minor Changes
+
+- @
+
+## 0.5.0
+
+### Minor Changes
+
+- 发布进行测试
+
+## 0.4.0
+
+### Minor Changes
+
+- 大升级
+
 ## 0.3.0
 
 ### Minor Changes

@@ -1,0 +1,39 @@
+
+#用户登录
+GET http://localhost/_api/v2/cli/GenerateToken?username=huanentcn&password=abcd1234 HTTP/1.1
+
+# {
+#   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZkZTQyNDAyLThlYmYtNmJhNy1jMGQyLTY0OWRkMzg0NGVjYiIsImtpbmQiOiJwYXNzd29yZCIsIm9yZyI6IjZkZTQyNDAyLThlYmYtNmJhNy1jMGQyLTY0OWRkMzg0NGVjYiIsImV4cCI6MTc0NTU0ODQ4NH0.pSHn1WDaxL8aph0KxR8ZFLZmW1aLExptIaDMfR12TkM",
+#   "expireAt": 1745561285,
+#   "serverUrl": "http://localhost"
+# }
+
+### 创建站点
+GET http://localhost/_api/v2/cli/CreateSite?name=mail-pandapro HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZkZTQyNDAyLThlYmYtNmJhNy1jMGQyLTY0OWRkMzg0NGVjYiIsImtpbmQiOiJwYXNzd29yZCIsIm9yZyI6IjZkZTQyNDAyLThlYmYtNmJhNy1jMGQyLTY0OWRkMzg0NGVjYiIsImV4cCI6MTc0NTU2Njk3Nn0.dMF0WYuNbs-OhUkn4QaSRQAdrcB2phCzU6-fIRv-HrQ
+
+#{
+#  "id": "704447fd-5ff2-bc27-e859-0c9819a9f9a5",
+#  "siteUrl": "http://mailpandapro11.localkooboo.com/"
+#}
+
+### 安装Module
+GET http://mailpandapro11.localkooboo.com/_api/v2/cli/InstallModule?name=sqlite_orm HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZkZTQyNDAyLThlYmYtNmJhNy1jMGQyLTY0OWRkMzg0NGVjYiIsImtpbmQiOiJwYXNzd29yZCIsIm9yZyI6IjZkZTQyNDAyLThlYmYtNmJhNy1jMGQyLTY0OWRkMzg0NGVjYiIsImV4cCI6MTc0NTU2Njk3Nn0.dMF0WYuNbs-OhUkn4QaSRQAdrcB2phCzU6-fIRv-HrQ
+
+
+#{
+#  "moduleUrl": "http://mailpandapro11.localkooboo.com/_sqlite_orm"
+#}
+
+### 设置Unocss
+POST http://mailpandapro11.localkooboo.com/_api/v2/cli/UpdateUnocss HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZkZTQyNDAyLThlYmYtNmJhNy1jMGQyLTY0OWRkMzg0NGVjYiIsImtpbmQiOiJwYXNzd29yZCIsIm9yZyI6IjZkZTQyNDAyLThlYmYtNmJhNy1jMGQyLTY0OWRkMzg0NGVjYiIsImV4cCI6MTc0NTU2Njk3Nn0.dMF0WYuNbs-OhUkn4QaSRQAdrcB2phCzU6-fIRv-HrQ
+Content-Type: application/json
+
+{
+    "Enable":true,
+    "DisableSsr":false,
+    "ResetStyle":false,
+    "Config":"{\"rules\": [[\"m-1\", { \"margin\": \"1rem\" }]]}"
+}

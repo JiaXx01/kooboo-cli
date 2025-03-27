@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { syncRequest } from '../index.js'
 
 /**
@@ -6,11 +5,7 @@ import { syncRequest } from '../index.js'
  * @param path 本地文件路径
  * @param code 代码内容
  */
-export function execSyncSaveTo(
-  path: string,
-  code: string,
-  isDev: boolean = false
-) {
+export function execSyncSaveTo(path: string, code: string) {
   // 同步到 api 目录
   if (path.startsWith('Api')) {
     // 检查路径格式是否为 Api/xx.ts
@@ -32,13 +27,14 @@ export function execSyncSaveTo(
             }
           }
         ]
+      }).then(res => {
+        const data = res.data[0]
+        if (data.success) {
+          console.log(`同步成功: ${data.message}`)
+        } else {
+          console.log(`同步失败: ${data.message}`)
+        }
       })
-        .then(res => {
-          console.log(`同步成功: ${path} -> ${apiName}`)
-        })
-        .catch(err => {
-          console.log(`同步失败: ${path} -> ${apiName}`)
-        })
     } else {
       console.log(
         `Invalid API path format: ${path}. Expected format: Api/xx.ts`
@@ -58,13 +54,14 @@ export function execSyncSaveTo(
             resource: { name: pageName, body: code, url: pagePath }
           }
         ]
+      }).then(res => {
+        const data = res.data[0]
+        if (data.success) {
+          console.log(`同步成功: ${data.message}`)
+        } else {
+          console.log(`同步失败: ${data.message}`)
+        }
       })
-        .then(res => {
-          console.log(`同步成功: ${path} -> ${pageName}`)
-        })
-        .catch(err => {
-          console.log(`同步失败: ${path} -> ${pageName} `)
-        })
     } else {
       console.log(
         `Invalid Page path format: ${path}. Expected format: Page/xx.html`
@@ -92,13 +89,14 @@ export function execSyncSaveTo(
             }
           }
         ]
+      }).then(res => {
+        const data = res.data[0]
+        if (data.success) {
+          console.log(`同步成功: ${data.message}`)
+        } else {
+          console.log(`同步失败: ${data.message}`)
+        }
       })
-        .then(res => {
-          console.log(`同步成功: ${path} -> ${codeBlockName}`)
-        })
-        .catch(err => {
-          console.log(`同步失败: ${path} -> ${codeBlockName} `)
-        })
     } else {
       console.log(
         `Invalid CodeBlock path format: ${path}. Expected format: CodeBlock/xx.ts or CodeBlock/xx/yy.ts`
@@ -117,13 +115,14 @@ export function execSyncSaveTo(
             resource: { name: layoutName, body: code }
           }
         ]
+      }).then(res => {
+        const data = res.data[0]
+        if (data.success) {
+          console.log(`同步成功: ${data.message}`)
+        } else {
+          console.log(`同步失败: ${data.message}`)
+        }
       })
-        .then(res => {
-          console.log(`同步成功: ${path} -> ${layoutName}`)
-        })
-        .catch(err => {
-          console.log(`同步失败: ${path} -> ${layoutName} `)
-        })
     } else {
       console.log(
         `Invalid Layout path format: ${path}. Expected format: Layout/xx.html`
@@ -142,13 +141,14 @@ export function execSyncSaveTo(
             resource: { name: viewName, body: code }
           }
         ]
+      }).then(res => {
+        const data = res.data[0]
+        if (data.success) {
+          console.log(`同步成功: ${data.message}`)
+        } else {
+          console.log(`同步失败: ${data.message}`)
+        }
       })
-        .then(res => {
-          console.log(`同步成功: ${path} -> ${viewName}`)
-        })
-        .catch(err => {
-          console.log(`同步失败: ${path} -> ${viewName} `)
-        })
     } else {
       console.log(
         `Invalid View path format: ${path}. Expected format: View/xx.html`
@@ -164,16 +164,20 @@ export function execSyncSaveTo(
         codeArr: [
           {
             type: 'style',
-            resource: { name: styleName, body: code }
+            resource: {
+              name: styleName.replace(/\//g, '.') + '.css',
+              body: code
+            }
           }
         ]
+      }).then(res => {
+        const data = res.data[0]
+        if (data.success) {
+          console.log(`同步成功: ${data.message}`)
+        } else {
+          console.log(`同步失败: ${data.message}`)
+        }
       })
-        .then(res => {
-          console.log(`同步成功: ${path} -> ${styleName}`)
-        })
-        .catch(err => {
-          console.log(`同步失败: ${path} -> ${styleName} `)
-        })
     } else {
       console.log(
         `Invalid Style path format: ${path}. Expected format: Style/xx.css`
@@ -189,16 +193,20 @@ export function execSyncSaveTo(
         codeArr: [
           {
             type: 'script',
-            resource: { name: scriptName, body: code }
+            resource: {
+              name: scriptName.replace(/\//g, '.') + '.js',
+              body: code
+            }
           }
         ]
+      }).then(res => {
+        const data = res.data[0]
+        if (data.success) {
+          console.log(`同步成功: ${data.message}`)
+        } else {
+          console.log(`同步失败: ${data.message}`)
+        }
       })
-        .then(res => {
-          console.log(`同步成功: ${path} -> ${scriptName}`)
-        })
-        .catch(err => {
-          console.log(`同步失败: ${path} -> ${scriptName} `)
-        })
     } else {
       console.log(
         `Invalid Script path format: ${path}. Expected format: Script/xx.js`

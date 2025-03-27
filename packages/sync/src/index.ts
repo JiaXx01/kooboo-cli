@@ -13,16 +13,20 @@ export const syncRequest = (data: any) =>
 interface SyncOptions {
   srcDir: string
   remoteSiteUrl: string
+  token: string
+  codeInitial: boolean
+  strict: boolean
 }
 
 export async function sync(options: SyncOptions) {
-  const { srcDir, remoteSiteUrl } = options
+  const { srcDir, remoteSiteUrl, token, codeInitial = false } = options
   axios.defaults.baseURL = remoteSiteUrl
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
   // 初始化 watcher
   const watcher = chokidar.watch(srcDir, {
     ignored: /(^|[\/\\])\../, // 忽略隐藏文件
     persistent: true,
-    ignoreInitial: true
+    ignoreInitial: !codeInitial
   })
 
   // 处理文件变化 - 只在文件真正变动时执行，初次运行时不执行
@@ -45,25 +49,27 @@ export async function sync(options: SyncOptions) {
       const ext = path.extname(filePath)
       if (['.ts', '.js'].includes(ext)) {
         // 只处理导入语句转换，不进行其他转换
-        const result = transform(source, {
-          sourceType: 'module',
-          parserOpts: {
-            plugins: ['typescript'] // 让 babel 能够解析 TS 语法
-          },
-          plugins: [importCodeBlockTransformer],
-          filename: filePath,
-          // 关闭代码生成，只进行 AST 转换
-          generatorOpts: {
-            retainLines: true, // 保持原始行号
-            compact: false, // 不压缩代码
-            comments: true // 保留注释
-          }
-        })
+        try {
+          const result = transform(source, {
+            sourceType: 'module',
+            parserOpts: {
+              plugins: ['typescript'] // 让 babel 能够解析 TS 语法
+            },
+            plugins: [importCodeBlockTransformer],
+            filename: filePath,
+            // 关闭代码生成，只进行 AST 转换
+            generatorOpts: {
+              retainLines: true, // 保持原始行号
+              compact: false, // 不压缩代码
+              comments: true // 保留注释
+            }
+          })
 
-        // if (result?.code) {
-        const code = result?.code || ''
-        execSyncSaveTo(relativePath, code)
-        // }
+          const code = result?.code || ''
+          execSyncSaveTo(relativePath, code)
+        } catch (error) {
+          console.log(`同步失败: 语法错误`)
+        }
       } else {
         execSyncSaveTo(relativePath, source)
       }
