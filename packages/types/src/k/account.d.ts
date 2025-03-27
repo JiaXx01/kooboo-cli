@@ -2,7 +2,8 @@ interface User {
   userName: string
 }
 interface Account {
-  user: User
+  user: User;
+  logout(): void;
 }
 
 export { Account }

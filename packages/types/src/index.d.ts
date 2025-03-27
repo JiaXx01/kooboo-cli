@@ -4,6 +4,7 @@ import { Cache } from './k/cache'
 import { Account } from './k/account'
 import { Request } from './k/request'
 import { Response } from './k/response'
+import { Cookie } from './k/cookie'
 
 declare global {
   namespace k {
@@ -13,6 +14,7 @@ declare global {
     const account: Account
     const request: Request
     const response: Response
+    const cookie: Cookie
   }
 }
 

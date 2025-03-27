@@ -1,6 +1,7 @@
 import UserModel from './Models.user'
 
-export const getUserInfo = (username: string)=>{
+export const getUserInfo = (username?: string)=>{
+    if (!username) username = k.account.user.userName
     let userInfo = UserModel.findOne({ user_id: username })
     if (userInfo) return userInfo
 

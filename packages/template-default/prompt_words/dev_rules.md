@@ -68,7 +68,11 @@ src
    - 正确：为el-select(下拉选择框)设置固定宽度，如 `class="w-[160px]"`，根据内容长度调整
 
 # 服务端
-
+## 文件引用规范
+1. 在Api 和 CodeBLock 下的文件引用时需要使用@进行引用
+   - 错误写法: import UserModel from '../Models/user'
+   - 正确写法: import UserModel from '@CodeBlock/Models/user'
+   - 
 ## API 开发规范
 1. 使用 k.api 进行 api 定义
    - 文档: https://achen-11.github.io/kooboo-dev-guide/api/k-api.html
@@ -84,6 +88,16 @@ src
 4. 响应格式
    - 错误：手动构造 `{ success: true, data: result }` 格式的响应
    - 正确：使用 `utils.ts` 中的 `successResponse` 和 `failResponse` 函数统一响应格式
+5. API 和 CodeBlock 都不存在异步处理, 因此都不需要 async, await 语法, 直接使用回调函数进行处理
+   - 错误写法: 
+      ```ts
+      k.api.post('create', async (body) => {})
+      ```
+   - 正确写法: 
+      ```ts
+      k.api.post('create', (body) => {})
+      ```
+
 
 ## 数据库操作规范
 
