@@ -137,13 +137,16 @@ k.api.post('create', (body) => {
    - 错误：使用 `find` 方法查询所有记录，如 `OrderItemModel.find({ orderId: id })`
    - 正确：
      1. 使用 `findAll` 方法查询所有记录，如 `OrderItemModel.findAll({ orderId: id })`,
-     2. 使用 `findPaginated` 方法查询分页记录，如 `OrderItemModel.findPaginated({ orderId: id, page: 1, pageSize: 10 })` (更复杂的查询建议直接通过 `k.DB.sqlite.query(sql, params)`查询)
+     2. 使用 `findPaginated` 方法查询分页记录，如 `OrderItemModel.findPaginated({ orderId: id}, { page: 1, pageSize: 10 })` (更复杂的查询建议直接通过 `k.DB.sqlite.query(sql, params)`查询)
      3. 使用 `findOne` 方法查询单条记录，如 `OrderItemModel.findOne({ orderId: id })`
      4. 使用 `findById` 方法查询单条记录，如 `OrderItemModel.findById(id)`
      5. 使用 `k.DB.sqlite.query` 执行原生 sql 进行查询
-5. 自动创建 created 和 updated 字段
+5. 查询方法错误传参
+   - 错误写法: 在查询方法中, 将所有查询内容放在第一个参数, 例如: `OrderItemModel.find({ orderId: id, sort: {prop: 'created', order: 'descending'} })`
+   - 正确写法: 第一个参数是字段查询 where, 第二个参数才是其他配置参数, 如: `OrderItemModel.findAll({ orderId: id }, {sort: { prop: 'created', order: 'descending' }})`
+6. 自动创建 created 和 updated 字段
     - 在使用 sqlite_orm_v2 定义模型时，可以通过 `define` 方法的第二个参数 `options` 中的 `timestamps` 选项来自动添加 `created` 和 `updated` 字段，无需手动在模型中定义这些字段。
-6. 枚举类型的正确引用方式
+7. 枚举类型的正确引用方式
    - 在定义模型字段类型时，对于枚举类型的引用有特定的语法格式。
    - 正确的枚举类型引用:
         ```ts
@@ -166,7 +169,7 @@ k.api.post('create', (body) => {
             }
         })
         ```
-7. 日期类型字段的正确声明方式
+8. 日期类型字段的正确声明方式
    - 在定义模型字段类型时，对于日期类型字段的声明有特定的语法格式。
    - 正确的日期类型字段声明:
         ```ts
