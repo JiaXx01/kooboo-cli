@@ -159,7 +159,7 @@ export function execSyncSaveTo(
     const stylePathRegex = /^Style\/(.+)\.css$/
     const match = path.match(stylePathRegex)
     if (match) {
-      const styleName = match[1] // 提取 Style/ 后面的部分（不含扩展名）
+      const styleName = match[1] + '.css' // 提取 Style/ 后面的部分（不含扩展名）
       syncRequest({
         codeArr: [
           {
@@ -184,7 +184,7 @@ export function execSyncSaveTo(
     const scriptPathRegex = /^Script\/(.+)\.js$/
     const match = path.match(scriptPathRegex)
     if (match) {
-      const scriptName = match[1] // 提取 Script/ 后面的部分（不含扩展名）
+      const scriptName = match[1] + '.js' // 提取 Script/ 后面的部分（包含扩展名）
       syncRequest({
         codeArr: [
           {
