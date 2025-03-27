@@ -1,5 +1,11 @@
 # @jx-cli/template-default
 
+## 1.17.1
+
+### Patch Changes
+
+- dev_rules perf
+
 ## 1.17.0
 
 ### Minor Changes
