@@ -1,5 +1,11 @@
 # @jx-cli/types
 
+## 1.13.0
+
+### Minor Changes
+
+- 大修复
+
 ## 1.12.0
 
 ### Minor Changes

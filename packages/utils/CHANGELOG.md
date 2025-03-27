@@ -1,5 +1,11 @@
 # @jx-cli/utils
 
+## 1.15.0
+
+### Minor Changes
+
+- 大修复
+
 ## 1.14.0
 
 ### Minor Changes

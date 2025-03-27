@@ -1,5 +1,16 @@
 # @jx-cli/cli
 
+## 0.16.0
+
+### Minor Changes
+
+- 大修复
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/create@1.16.0
+
 ## 0.15.0
 
 ### Minor Changes
