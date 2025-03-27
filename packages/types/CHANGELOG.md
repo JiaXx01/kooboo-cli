@@ -1,5 +1,53 @@
 # @jx-cli/types
 
+## 1.12.0
+
+### Minor Changes
+
+- ts 编译
+
+## 1.11.0
+
+### Minor Changes
+
+- style 和 script 保留后缀，修正监听模式错误
+
+## 1.10.0
+
+### Minor Changes
+
+- #
+
+## 1.9.0
+
+### Minor Changes
+
+- 好多问题
+
+## 1.8.0
+
+### Minor Changes
+
+- #
+
+## 1.7.0
+
+### Minor Changes
+
+- @
+
+## 1.6.0
+
+### Minor Changes
+
+- 发布进行测试
+
+## 1.5.0
+
+### Minor Changes
+
+- 大升级
+
 ## 1.4.0
 
 ### Minor Changes

@@ -66,7 +66,7 @@ async function create() {
     serverUrl: authData?.serverUrl!
   })
   createSiteSpinner.stop()
-  
+
   if (!createSiteResult.success) {
     ora('创建站点失败, 请检查信息后重试').fail()
     return
@@ -137,7 +137,5 @@ async function create() {
 
   spinner.stop()
 }
-
-create()
 
 export default create
