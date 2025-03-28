@@ -1,5 +1,17 @@
 # @jx-cli/types
 
+## 1.16.0
+
+### Minor Changes
+
+- KScript 类型定义
+
+## 1.15.0
+
+### Minor Changes
+
+- 完善类型定义
+
 ## 1.14.0
 
 ### Minor Changes

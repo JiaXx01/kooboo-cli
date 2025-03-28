@@ -1,24 +1,28 @@
-import { define } from 'module:sqlite_orm_v2'
+import { define } from '@Module/sqlite_orm_v2'
 
-const model = define('user', {
+const model = define(
+  'user',
+  {
     user_id: {
-        type: String,
-        required: true,
+      type: String,
+      required: true
     },
     name: {
-        type: String,
-        required: true,
+      type: String,
+      required: true
     },
     email: {
-        type: String,
-        required: true,
+      type: String,
+      required: true
     },
     avatar: {
-        type: String,
+      type: String
     },
     is_admin: {
-        type: Boolean,
+      type: Boolean
     }
-}, { timestamps: true })
+  },
+  { timestamps: true }
+)
 
-export default model 
+export default model

@@ -5,6 +5,8 @@ import { Account } from './k/account'
 import { Request } from './k/request'
 import { Response } from './k/response'
 import { Cookie } from './k/cookie'
+import { File } from './k/file'
+import { Security } from './k/security'
 
 declare global {
   namespace k {
@@ -15,6 +17,8 @@ declare global {
     const request: Request
     const response: Response
     const cookie: Cookie
+    const file: File
+    const security: Security
   }
 }
 
