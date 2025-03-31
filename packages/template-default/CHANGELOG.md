@@ -1,5 +1,12 @@
 # @jx-cli/template-default
 
+## 1.18.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/sync@0.18.1
+
 ## 1.18.0
 
 ### Minor Changes

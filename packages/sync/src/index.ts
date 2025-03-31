@@ -70,7 +70,7 @@ export async function sync(options: SyncOptions) {
         } catch (error) {
           console.log(`同步失败: 语法错误`)
         }
-      } else if ('.html' === ext) {
+      } else if (ext === '.html') {
         // 将html文件中<view id="aa/bb/cc"></view>的id值进行转换，转换规则为：
         // 将/替换为. 比如aa/bb/cc转换为aa.bb.cc、 aa则为aa
         const code = source.replace(/<view id="([^"]+)"><\/view>/g, (_, p1) => {

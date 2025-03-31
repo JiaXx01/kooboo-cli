@@ -1,5 +1,11 @@
 # @jx-cli/sync
 
+## 0.18.1
+
+### Patch Changes
+
+- 编译 sync 包
+
 ## 0.18.0
 
 ### Minor Changes
