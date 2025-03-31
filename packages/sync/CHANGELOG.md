@@ -1,5 +1,11 @@
 # @jx-cli/sync
 
+## 0.18.0
+
+### Minor Changes
+
+- 处理 view 标签
+
 ## 0.17.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @jx-cli/template-default
 
+## 1.18.0
+
+### Minor Changes
+
+- 处理 view 标签
+
+### Patch Changes
+
+- Updated dependencies
+  - @jx-cli/sync@0.18.0
+
 ## 1.17.1
 
 ### Patch Changes
