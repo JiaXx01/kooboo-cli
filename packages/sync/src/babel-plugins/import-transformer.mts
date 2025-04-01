@@ -10,7 +10,6 @@ const importCodeBlockTransformer = declare((api, options, dirname) => {
           path.traverse({
             ImportDeclaration(path) {
               const localPath = path.node.source.value
-              console.log(localPath)
               if (localPath.startsWith('@CodeBlock/')) {
                 // 分割路径
                 const pathParts = localPath.split('/')

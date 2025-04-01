@@ -1,5 +1,11 @@
 # @jx-cli/sync
 
+## 0.19.0
+
+### Minor Changes
+
+- sync 删除 console.log 代码，type 添加类型定义
+
 ## 0.18.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @jx-cli/types
 
+## 1.17.0
+
+### Minor Changes
+
+- sync 删除 console.log 代码，type 添加类型定义
+
 ## 1.16.0
 
 ### Minor Changes

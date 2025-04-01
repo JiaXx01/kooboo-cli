@@ -77,7 +77,6 @@ export function execSyncSaveTo(path: string, code: string) {
       const formattedPath = codeBlockPath.replace(/\//g, '.')
       // 构建最终的资源路径
       const codeBlockName = `./${formattedPath}`
-      console.log(`Syncing CodeBlock: ${path} -> ${codeBlockName}`)
 
       syncRequest({
         codeArr: [

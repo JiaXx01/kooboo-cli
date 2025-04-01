@@ -45,7 +45,9 @@ interface OAuth {
  * Organization
  */
 // TODO
-interface OrganizationModel {}
+interface OrganizationModel {
+  users: UserModel[]
+}
 
 interface Organization {
   current: OrganizationModel
