@@ -36,6 +36,7 @@ export interface Security {
   jwt: Jwt
   rsa: Rsa
   md5(input: string): string
+  newGuid(): string
   sha1(input: string): string
   sha256(input: string): string
   sha256Binary(input: string): number[]

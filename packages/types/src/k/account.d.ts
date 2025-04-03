@@ -112,7 +112,7 @@ interface UserModel {
   isAdmin: boolean
   userName: string
   emailAddress: string
-  emailId: string
+  email: string
   isEmailVerified: boolean
   isTelVerified: boolean
   tel: string | null
@@ -152,7 +152,6 @@ interface UserCurrent {
 
 interface User {
   changeOrganization(organizationName: string): UserModel
-  userName: string
   current: UserCurrent
   email: string
   emailExists(email: string): boolean

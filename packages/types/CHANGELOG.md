@@ -1,5 +1,11 @@
 # @jx-cli/types
 
+## 1.18.0
+
+### Minor Changes
+
+- typetype
+
 ## 1.17.0
 
 ### Minor Changes
