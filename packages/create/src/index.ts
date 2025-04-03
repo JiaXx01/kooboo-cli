@@ -76,6 +76,10 @@ async function create() {
     message: '请选择项目模版',
     choices: [
       {
+        name: '空白模板',
+        value: '@jx-cli/template-empty'
+      },
+      {
         name: '基础模板',
         value: '@jx-cli/template-default'
       }

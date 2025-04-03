@@ -1,5 +1,11 @@
 # @jx-cli/create
 
+## 1.18.0
+
+### Minor Changes
+
+- 新增空白模板选项
+
 ## 1.17.0
 
 ### Minor Changes
