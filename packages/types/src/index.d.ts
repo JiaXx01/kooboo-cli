@@ -19,6 +19,7 @@ declare global {
     const cookie: Cookie
     const file: File
     const security: Security
+    const fromSite: (siteIdOrName: string) => typeof k | null
   }
 }
 

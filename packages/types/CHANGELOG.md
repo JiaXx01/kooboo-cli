@@ -1,5 +1,11 @@
 # @jx-cli/types
 
+## 1.19.0
+
+### Minor Changes
+
+- formSite()类型
+
 ## 1.18.0
 
 ### Minor Changes
