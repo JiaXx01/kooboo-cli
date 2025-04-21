@@ -1,4 +1,4 @@
-import { define } from '@Module/sqlite_orm_v2'
+import { define } from 'module:sqlite_orm_v2'
 
 const model = define(
   'user',

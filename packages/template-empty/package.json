@@ -1,6 +1,6 @@
 {
-  "name": "@jx-cli/template-empty",
-  "version": "1.0.1",
+  "name": "@kooboo_cli/template-empty",
+  "version": "2.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -10,10 +10,10 @@
     "dev:init": "node scripts/dev.js --init"
   },
   "dependencies": {
-    "@jx-cli/sync": "workspace:^"
+    "@kooboo_cli/sync": "workspace:^"
   },
   "devDependencies": {
-    "@jx-cli/types": "workspace:^",
+    "@kooboo_cli/types": "workspace:^",
     "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.24.0",
     "@babel/preset-typescript": "^7.23.3",

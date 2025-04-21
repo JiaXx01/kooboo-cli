@@ -5,7 +5,7 @@ import {
   password as passwordInput
 } from '@inquirer/prompts'
 import os from 'node:os'
-import { NpmPackage } from '@jx-cli/utils'
+import { NpmPackage } from '@kooboo_cli/utils'
 import path from 'node:path'
 import ora from 'ora'
 import fse from 'fs-extra'
@@ -77,11 +77,11 @@ async function create() {
     choices: [
       {
         name: '空白模板',
-        value: '@jx-cli/template-empty'
+        value: '@kooboo_cli/template-empty'
       },
       {
         name: '基础模板',
-        value: '@jx-cli/template-default'
+        value: '@kooboo_cli/template-default'
       }
     ]
   })

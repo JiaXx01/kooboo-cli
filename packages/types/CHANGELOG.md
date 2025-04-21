@@ -1,5 +1,11 @@
 # @jx-cli/types
 
+## 2.0.0
+
+### Major Changes
+
+- 更改包名前缀从@jx-cli 到@kooboo_cli
+
 ## 1.19.0
 
 ### Minor Changes

@@ -33,7 +33,7 @@ importers:
 
   packages/cli:
     dependencies:
-      '@jx-cli/create':
+      '@kooboo_cli/create':
         specifier: workspace:^
         version: link:../create
       commander:
@@ -52,7 +52,7 @@ importers:
       '@inquirer/prompts':
         specifier: ^7.4.0
         version: 7.4.0(@types/node@22.13.13)
-      '@jx-cli/utils':
+      '@kooboo_cli/utils':
         specifier: workspace:^
         version: link:../utils
       axios:
@@ -111,7 +111,7 @@ importers:
 
   packages/template-default:
     dependencies:
-      '@jx-cli/sync':
+      '@kooboo_cli/sync':
         specifier: workspace:^
         version: link:../sync
     devDependencies:
@@ -127,7 +127,7 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.23.3
         version: 7.26.0(@babel/core@7.26.10)
-      '@jx-cli/types':
+      '@kooboo_cli/types':
         specifier: workspace:^
         version: link:../types
       dotenv:
@@ -139,7 +139,7 @@ importers:
 
   packages/template-empty:
     dependencies:
-      '@jx-cli/sync':
+      '@kooboo_cli/sync':
         specifier: workspace:^
         version: link:../sync
     devDependencies:
@@ -155,7 +155,7 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.23.3
         version: 7.26.0(@babel/core@7.26.10)
-      '@jx-cli/types':
+      '@kooboo_cli/types':
         specifier: workspace:^
         version: link:../types
       dotenv:

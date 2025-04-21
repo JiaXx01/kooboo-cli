@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { sync } from '@jx-cli/sync'
+import { sync } from '@kooboo_cli/sync'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 

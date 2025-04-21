@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import create from '@jx-cli/create'
+import create from '@kooboo_cli/create'
 import { Command } from 'commander'
 import fse from 'fs-extra'
 import path from 'node:path'

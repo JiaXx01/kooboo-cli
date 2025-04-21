@@ -1,11 +1,11 @@
 # Kooboo-CLI
 
-
 ## 使用
 
 ### 创建项目
+
 ```bash
-npx @jx-cli/cli create
+npx @kooboo_cli/cli create
 ```
 
 ### 初始化
@@ -13,7 +13,7 @@ npx @jx-cli/cli create
 ```bash
 cd 项目目录
 
-# pnpm 
+# pnpm
 pnpm install
 
 pnpm dev:init # 将本地代码初始化推送到远端
@@ -24,7 +24,9 @@ npm run dev:init # 将本地代码初始化推送到远端
 ```
 
 ### 开发
+
 该命令会运行监听脚本, 即本地代码发生变化时, 会自动同步到远端
+
 ```bash
 # pnpm
 pnpm dev
@@ -34,17 +36,18 @@ npm run dev
 ```
 
 ## 项目结构
+
 ```bash
 .
 ├── package.json
 ├── pnpm-lock.yaml
 ├── prompt_words (预设提示词文件目录)
 │   └── dev_rules.md
-├── scripts 
+├── scripts
 │   └── dev.js (同步脚本)
 ├── src
 │   ├── Api (对应Kooboo的Api目录)
-│   │   └── __logout.ts 
+│   │   └── __logout.ts
 │   ├── CodeBlock (对应Kooboo的CodeBlock目录)
 │   │   ├── Models
 │   │   │   └── users.ts
@@ -85,3 +88,4 @@ npm run dev
 │           ├── dashboard.html
 │           └── home.html
 └── tsconfig.json
+```

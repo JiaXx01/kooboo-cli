@@ -19,7 +19,7 @@
       "@CodeBlock/*": ["src/CodeBlock/*"],
       "@Module/*": ["src/Module/*/code/index.ts"]
     },
-    "types": ["@jx-cli/types"]
+    "types": ["@kooboo_cli/types"]
   },
   "include": ["src/**/*"]
 }
