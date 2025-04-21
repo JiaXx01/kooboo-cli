@@ -1,5 +1,11 @@
 # @jx-cli/create
 
+## 2.1.0
+
+### Minor Changes
+
+- 修改代码内包名错误
+
 ## 2.0.0
 
 ### Major Changes

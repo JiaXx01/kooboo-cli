@@ -99,7 +99,7 @@ async function create() {
 
   const pkg = new NpmPackage({
     name: projectTemplate,
-    targetPath: path.join(os.homedir(), '.jx-cli-template')
+    targetPath: path.join(os.homedir(), '.kooboo_cli-template')
   })
 
   if (!(await pkg.exists())) {

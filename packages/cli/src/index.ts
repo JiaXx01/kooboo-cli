@@ -10,7 +10,7 @@ const pkgJson = fse.readJSONSync(
 
 const program = new Command()
 
-program.name('jx-cli').description('脚手架 cli').version(pkgJson.version)
+program.name('kooboo_cli').description('脚手架 cli').version(pkgJson.version)
 
 program
   .command('create')

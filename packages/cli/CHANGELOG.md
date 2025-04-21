@@ -1,5 +1,16 @@
 # @jx-cli/cli
 
+## 1.1.0
+
+### Minor Changes
+
+- 修改代码内包名错误
+
+### Patch Changes
+
+- Updated dependencies
+  - @kooboo_cli/create@2.1.0
+
 ## 1.0.0
 
 ### Major Changes
