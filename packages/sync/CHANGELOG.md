@@ -1,5 +1,11 @@
 # @jx-cli/sync
 
+## 1.0.0
+
+### Major Changes
+
+- index
+
 ## 0.19.0
 
 ### Minor Changes

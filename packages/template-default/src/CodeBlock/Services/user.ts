@@ -8,12 +8,13 @@ export const getUserInfo = (username?: string) => {
   // 未注册
   const { fullName, userName, isAdmin } = k.account.user.get(username)
 
-  userInfo = UserModel.create({
+  UserModel.create({
     user_id: userName,
     name: fullName || userName,
     is_admin: isAdmin,
     email: k.account.user.current.email
   })
+  userInfo = UserModel.findOne({ user_id: userName })
   return userInfo
 }
 

@@ -51,7 +51,11 @@ export function execSyncSaveTo(path: string, code: string) {
         codeArr: [
           {
             type: 'page',
-            resource: { name: pageName, body: code, url: pagePath }
+            resource: {
+              name: pageName,
+              body: code,
+              url: pageName === 'index' ? '/' : pagePath
+            }
           }
         ]
       }).then(res => {
