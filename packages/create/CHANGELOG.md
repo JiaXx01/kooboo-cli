@@ -1,5 +1,16 @@
 # @jx-cli/create
 
+## 2.2.0
+
+### Minor Changes
+
+- 修改代码错误并重新编译 ts
+
+### Patch Changes
+
+- Updated dependencies
+  - @kooboo_cli/utils@2.1.0
+
 ## 2.1.0
 
 ### Minor Changes

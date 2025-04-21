@@ -1,5 +1,11 @@
 # @jx-cli/sync
 
+## 2.1.0
+
+### Minor Changes
+
+- 修改代码错误并重新编译 ts
+
 ## 2.0.0
 
 ### Major Changes
