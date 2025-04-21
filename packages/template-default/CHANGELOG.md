@@ -1,5 +1,11 @@
 # @jx-cli/template-default
 
+## 2.2.0
+
+### Minor Changes
+
+- 优化模板代码
+
 ## 2.1.0
 
 ### Minor Changes

@@ -1,18 +1,22 @@
+<view id="components/app-mobile-menu"></view>
+
 <template id="app-header">
-  <header class="bg-white shadow">
-    <div class="flex justify-between items-center px-6 py-3">
-      <div class="flex items-center">
-        <!-- <img src="/logo.png" alt="Logo" class="h-8 mr-2"> -->
+  <header class="bg-white border-b">
+    <div class="flex justify-between items-center px-4 py-3">
+      <div class="flex items-center gap-2">
+        <app-mobile-menu></app-mobile-menu>
         <h1 class="text-xl font-bold text-gray-800">kooboo admin</h1>
       </div>
       <div class="flex items-center">
         <el-dropdown>
           <span class="flex items-center cursor-pointer">
-            <el-avatar :size="32" class="mr-2"
+            <el-avatar :size="32"
               >{{ userInfo.name.substring(0, 1) }}</el-avatar
             >
-            <span>{{ userInfo.name }}</span>
-            <icon-arrow-down class="w-4 h-4 ml-1"></icon-arrow-down>
+            <span class="hidden ml-2 md:block">{{ userInfo.name }}</span>
+            <icon-arrow-down
+              class="w-4 h-4 ml-1 hidden md:block"
+            ></icon-arrow-down>
           </span>
           <template #dropdown>
             <el-dropdown-menu>
@@ -37,6 +41,7 @@
     setup(props, { emit }) {
       const userInfo = ref(
         window.__USER_INFO__ || {
+          name: '管理员',
           username: '管理员',
           avatar: '',
           role: '管理员'
@@ -46,7 +51,7 @@
       return {
         userInfo,
         handleLogout() {
-          location.href = 'api/__logout'
+          location.href = '/api/__logout'
         }
       }
     }

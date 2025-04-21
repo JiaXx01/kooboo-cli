@@ -13,14 +13,15 @@
         k.response.redirect('/_Admin/login?permission=o&returnurl=/')
         return
       }
-      const username = k.account.user.current.userName
+      const username = k.account.user.userName
       const userInfo = getUserInfo(username)
 
-      k.utils.clientJS.setVariable('__USER_INFO__', userInfo)
+      k.utils.clientJS.setVariable('__USER_INFO__', { name: username })
     </script>
   </head>
   <body class="bg-gray-100">
     <view id="components/app-header"></view>
+    <view id="components/app-menu"></view>
     <view id="components/app-sidebar"></view>
     <div class="hidden" k-placeholder="Main">
       Sample text inside the layout..

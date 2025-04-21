@@ -1,0 +1,31 @@
+<template id="app-mobile-menu">
+  <div class="p-0 md:hidden">
+    <el-button @click="open = true" size="small">
+      <icon-menu class="w-3 h-3"></icon-menu>
+    </el-button>
+    <el-drawer
+      v-model="open"
+      :size="256"
+      direction="ltr"
+      :with-header="false"
+      body-class="p-0"
+    >
+      <app-menu></app-menu>
+    </el-drawer>
+  </div>
+</template>
+
+<script>
+  defineComponent('app-mobile-menu', {
+    template: '#app-mobile-menu',
+    props: {},
+    emits: [],
+    setup(props, { emit }) {
+      const open = ref(false)
+
+      return {
+        open
+      }
+    }
+  })
+</script>
