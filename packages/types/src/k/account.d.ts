@@ -46,6 +46,7 @@ interface OAuth {
  */
 // TODO
 interface OrganizationModel {
+  id: string
   users: UserModel[]
 }
 

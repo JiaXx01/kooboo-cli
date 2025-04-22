@@ -1,5 +1,11 @@
 # @jx-cli/types
 
+## 2.1.1
+
+### Patch Changes
+
+- 完善类型定义
+
 ## 2.1.0
 
 ### Minor Changes

@@ -7,6 +7,18 @@ import { execSyncDeleteTo, execSyncSaveTo } from './sync/index.js'
 
 import axios from 'axios'
 
+axios.interceptors.response.use(
+  response => {
+    return response
+  },
+  error => {
+    console.log(error.response.data)
+    console.log(error.response.status)
+    console.log(error.response.headers)
+    // return Promise.reject(error)
+  }
+)
+
 export const syncRequest = (data: any) =>
   axios.post('/_site_import_helper/api/__import', data)
 

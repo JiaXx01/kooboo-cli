@@ -1,5 +1,11 @@
 # @jx-cli/sync
 
+## 2.1.1
+
+### Patch Changes
+
+- 添加请求错误处理，防止因错误中断执行
+
 ## 2.1.0
 
 ### Minor Changes
