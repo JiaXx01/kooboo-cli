@@ -1,5 +1,11 @@
 # @jx-cli/types
 
+## 2.2.0
+
+### Minor Changes
+
+- 添加 k.site 部分类型定义
+
 ## 2.1.1
 
 ### Patch Changes

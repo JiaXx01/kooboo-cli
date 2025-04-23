@@ -7,6 +7,7 @@ import { Response } from './k/response'
 import { Cookie } from './k/cookie'
 import { File } from './k/file'
 import { Security } from './k/security'
+import { Site } from './k/site'
 
 declare global {
   namespace k {
@@ -20,6 +21,7 @@ declare global {
     const file: File
     const security: Security
     const fromSite: (siteIdOrName: string) => typeof k | null
+    const site: Site
   }
 }
 
