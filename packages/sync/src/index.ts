@@ -3,7 +3,8 @@ import { transform } from '@babel/core'
 import fs from 'node:fs'
 import path from 'node:path'
 import importCodeBlockTransformer from './babel-plugins/import-transformer.mjs'
-import { execSyncDeleteTo, execSyncSaveTo } from './sync/index.js'
+import { execDelete, execPush } from './sync/push.js'
+import { setSyncRequest, getTypeAndNameByLocalPath } from './utils.js'
 
 import axios from 'axios'
 
@@ -15,7 +16,6 @@ axios.interceptors.response.use(
     console.log(error.response.data)
     console.log(error.response.status)
     console.log(error.response.headers)
-    // return Promise.reject(error)
   }
 )
 
@@ -30,18 +30,32 @@ interface SyncOptions {
   strict: boolean
 }
 
-export async function sync(options: SyncOptions) {
+export async function syncPush(options: SyncOptions) {
   const { srcDir, remoteSiteUrl, token, codeInitial = false } = options
-  axios.defaults.baseURL = remoteSiteUrl
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-  // 初始化 watcher
-  const watcher = chokidar.watch(srcDir, {
-    ignored: /(^|[\/\\])\../, // 忽略隐藏文件
-    persistent: true,
-    ignoreInitial: !codeInitial
+  setSyncRequest({
+    remoteSiteUrl,
+    token
   })
+  // 监听的文件类型
+  const WATCH_CODE_DIRS = [
+    'Api',
+    'CodeBlock',
+    'Script',
+    'Style',
+    'Layout',
+    'Page',
+    'View'
+  ]
+  const watcher = chokidar.watch(
+    WATCH_CODE_DIRS.map(dir => path.join(srcDir, dir, '**/*')),
+    {
+      ignored: /(^|[\/\\])\../, // 忽略隐藏文件
+      persistent: true,
+      ignoreInitial: !codeInitial
+    }
+  )
 
-  // 处理文件变化 - 只在文件真正变动时执行，初次运行时不执行
+  // 处理文件变化
   watcher
     .on('ready', () => {
       console.log('开始监听文件变动')
@@ -56,10 +70,13 @@ export async function sync(options: SyncOptions) {
 
       // 读取源文件
       const source = fs.readFileSync(filePath, 'utf-8')
-
+      const { type, name } = getTypeAndNameByLocalPath(relativePath)
       // 只对 .ts, .js  文件进行导入语句转换
-      const ext = path.extname(filePath)
-      if (['.ts', '.js'].includes(ext)) {
+      const ext = path.extname(relativePath)
+      if (
+        (type === 'codeblock' || type === 'api') &&
+        ['.ts', '.js'].includes(ext)
+      ) {
         // 只处理导入语句转换，不进行其他转换
         try {
           const result = transform(source, {
@@ -78,7 +95,7 @@ export async function sync(options: SyncOptions) {
           })
 
           const code = result?.code || ''
-          execSyncSaveTo(relativePath, code)
+          execPush(relativePath, code)
         } catch (error) {
           console.log(`同步失败: 语法错误`)
         }
@@ -90,9 +107,9 @@ export async function sync(options: SyncOptions) {
             .replace(/\./g, '/')
             .replace(/\//g, '.')}"></view>`
         })
-        execSyncSaveTo(relativePath, code)
+        execPush(relativePath, code)
       } else {
-        execSyncSaveTo(relativePath, source)
+        execPush(relativePath, source)
       }
     } catch (error) {
       console.error(`Error processing ${filePath}:`)
@@ -103,7 +120,7 @@ export async function sync(options: SyncOptions) {
     try {
       const relativePath = path.relative(srcDir, filePath)
 
-      execSyncDeleteTo(relativePath)
+      execDelete(relativePath)
     } catch (error) {
       console.error(`Error deleting ${filePath}:`, error)
     }
@@ -114,3 +131,5 @@ export async function sync(options: SyncOptions) {
     watcher.close()
   }
 }
+
+export async function syncPull() {}

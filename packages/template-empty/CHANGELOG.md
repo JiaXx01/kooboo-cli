@@ -1,5 +1,16 @@
 # @jx-cli/template-empty
 
+## 2.2.0
+
+### Minor Changes
+
+- 重构 sync 包代码
+
+### Patch Changes
+
+- Updated dependencies
+  - @kooboo_cli/sync@2.2.0
+
 ## 2.1.2
 
 ### Patch Changes

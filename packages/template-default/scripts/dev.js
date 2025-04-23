@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { sync } from '@kooboo_cli/sync'
+import { syncPush } from '@kooboo_cli/sync'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -14,7 +14,7 @@ const codeInitial = process.argv.includes('--init')
 if (!remoteSiteUrl || !token) {
   console.log('请配置站点地址和 token')
 } else {
-  await sync({
+  await syncPush({
     srcDir: path.join(projectRoot, 'src'),
     remoteSiteUrl,
     token,
