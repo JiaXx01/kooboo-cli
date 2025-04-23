@@ -1,5 +1,12 @@
 # @jx-cli/template-default
 
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @kooboo_cli/sync@2.1.2
+
 ## 2.2.1
 
 ### Patch Changes

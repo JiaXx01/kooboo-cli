@@ -88,7 +88,7 @@ export function execSyncSaveTo(path: string, code: string) {
             type: 'codeblock',
             resource: {
               name: formattedPath,
-              body: code
+              body: code || ''
             }
           }
         ]

@@ -1,5 +1,11 @@
 # @jx-cli/sync
 
+## 2.1.2
+
+### Patch Changes
+
+- 修复保存空文件报错
+
 ## 2.1.1
 
 ### Patch Changes
