@@ -1,0 +1,25 @@
+{
+  "name": "@kooboo_cli/_test_sync",
+  "version": "2.2.2",
+  "private": true,
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:init": "node scripts/dev.js --init"
+  },
+  "dependencies": {
+    "@kooboo_cli/sync": "workspace:^"
+  },
+  "devDependencies": {
+    "@kooboo_cli/types": "workspace:^",
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-typescript": "^7.23.3",
+    "@babel/helper-plugin-utils": "^7.26.5",
+    "dotenv": "^16.4.7",
+    "typescript": "^5.3.3"
+  }
+}
