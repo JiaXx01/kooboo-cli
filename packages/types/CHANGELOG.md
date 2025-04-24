@@ -1,5 +1,11 @@
 # @jx-cli/types
 
+## 2.2.1
+
+### Patch Changes
+
+- 类型
+
 ## 2.2.0
 
 ### Minor Changes

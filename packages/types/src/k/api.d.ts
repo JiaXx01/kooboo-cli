@@ -1,8 +1,13 @@
 interface ApiResponse {}
 
+type ApiAction = (...args: any[]) => any
+type ApiResultHandler = (code: number, data: any) => any
+
 interface ApiHandler {
-  (path: string, handler: (...args: any[]) => any): void
-  (handler: (...args: any[]) => any): void
+  (action: ApiAction): void
+  (action: ApiAction, resultHandler: ApiResultHandler): void
+  (path: string, action: ApiAction): void
+  (path: string, action: ApiAction, resultHandler: ApiResultHandler): void
 }
 
 interface Api {
