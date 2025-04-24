@@ -1,7 +1,10 @@
 {
   "name": "kooboo_cli",
-  "version": "1.1.0",
+  "version": "1.5.0",
   "description": "KooBoo CLI Tools - Global Package",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "bin": {
     "kooboo": "./cli.js"
@@ -17,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@kooboo_cli/core": "workspace:^"
+    "@kooboo_cli/core": "latest"
   },
   "engines": {
     "node": ">=14.16"
