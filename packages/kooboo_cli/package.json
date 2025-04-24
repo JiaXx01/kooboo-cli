@@ -1,6 +1,6 @@
 {
   "name": "kooboo_cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "KooBoo CLI Tools - Global Package",
   "type": "module",
   "bin": {

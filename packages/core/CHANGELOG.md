@@ -1,5 +1,11 @@
 # @jx-cli/cli
 
+## 1.5.0
+
+### Minor Changes
+
+- 20b0ad9: 创建项目瘦包装器
+
 ## 1.4.0
 
 ### Minor Changes
