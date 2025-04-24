@@ -1,5 +1,17 @@
 # @jx-cli/cli
 
+## 1.4.0
+
+### Minor Changes
+
+- 修改 cli name
+
+## 1.3.0
+
+### Minor Changes
+
+- 修改 cli 包 name
+
 ## 1.2.0
 
 ### Minor Changes

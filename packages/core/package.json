@@ -1,6 +1,6 @@
 {
-  "name": "@kooboo_cli/cli",
-  "version": "1.2.0",
+  "name": "@kooboo_cli/core",
+  "version": "1.4.0",
   "publishConfig": {
     "access": "public"
   },
@@ -9,7 +9,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "kooboo_cli": "./dist/index.js"
+    "kooboo": "./dist/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

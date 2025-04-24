@@ -1,0 +1,33 @@
+{
+  "name": "kooboo_cli",
+  "version": "1.0.0",
+  "description": "KooBoo CLI Tools - Global Package",
+  "type": "module",
+  "bin": {
+    "kooboo": "./cli.js"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "kooboo",
+    "cli",
+    "tools"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@kooboo_cli/core": "workspace:^"
+  },
+  "engines": {
+    "node": ">=14.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/kooboo-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/kooboo-cli/issues"
+  },
+  "homepage": "https://github.com/username/kooboo-cli#readme"
+}
