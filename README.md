@@ -1,11 +1,23 @@
 # Kooboo-CLI
 
-## 使用
+kooboo-cli 是快速建站平台 kooboo 的本地开发环境集成
+
+- packages
+  - core 脚手架核心包
+  - create 创建项目指令包
+  - sync 开发代码同步包
+  - types KScript 语法类型包
+  - utils 脚手架工具包
+  - kooboo_cli 对 core 的瘦包装，简化命令
+  - template-xxx 预设 kooboo 开发模板
+  - \_test_sync 测试项目
 
 ### 创建项目
 
 ```bash
-npx @kooboo_cli/cli create
+npx kooboo_cli create
+# 或
+npx @kooboo_cli/core create
 ```
 
 ### 初始化
@@ -33,59 +45,4 @@ pnpm dev
 
 # npm
 npm run dev
-```
-
-## 项目结构
-
-```bash
-.
-├── package.json
-├── pnpm-lock.yaml
-├── prompt_words (预设提示词文件目录)
-│   └── dev_rules.md
-├── scripts
-│   └── dev.js (同步脚本)
-├── src
-│   ├── Api (对应Kooboo的Api目录)
-│   │   └── __logout.ts
-│   ├── CodeBlock (对应Kooboo的CodeBlock目录)
-│   │   ├── Models
-│   │   │   └── users.ts
-│   │   ├── Services
-│   │   │   └── user.ts
-│   │   └── utils.ts
-│   ├── Layout (对应Kooboo的Layout目录)
-│   │   └── main.html
-│   ├── Module (TODO: 对应 Module)
-│   │   └── orm
-│   │       └── code
-│   │           └── index.ts
-│   ├── Page (对应Kooboo的Page目录)
-│   │   └── home.html
-│   ├── Script (对应Kooboo的Script目录)
-│   │   ├── axios.js
-│   │   ├── dayjs.js
-│   │   ├── element-plus-icons.js
-│   │   ├── element-plus.js
-│   │   ├── element-plus_en.js
-│   │   ├── element-plus_zh.js
-│   │   ├── http.js
-│   │   ├── vue-i18n.js
-│   │   ├── vue-router.js
-│   │   └── vue.global.js
-│   ├── Style (对应Kooboo的Style目录)
-│   │   ├── element-plus.css
-│   │   ├── main.css
-│   │   └── reset.css
-│   └── View (对应Kooboo的View目录)
-│       ├── common-vue.html
-│       ├── common.html
-│       ├── common_routes.html
-│       ├── components
-│       │   ├── app-header.html
-│       │   └── sidebar.html
-│       └── pages
-│           ├── dashboard.html
-│           └── home.html
-└── tsconfig.json
 ```
